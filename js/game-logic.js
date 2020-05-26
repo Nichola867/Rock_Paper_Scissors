@@ -1,4 +1,4 @@
-//12 Global Variables
+// 12 Global Variables:
 
 let playerOneMoveOneType
 let playerOneMoveOneValue
@@ -14,32 +14,123 @@ let playerTwoMoveThreeType
 let playerTwoMoveThreeValue
 
 
-// Function setPlayerMoves:
 const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoValue, moveThreeType, moveThreeValue) => {
+
+  if (player !== 'Player One' && player !== 'Player Two') {
+    playerOneMoveOneType = 'INVALID'
+    playerOneMoveOneValue = 'INVALID'
+    playerOneMoveTwoType = 'INVALID'
+    playerOneMoveTwoValue = 'INVALID'
+    playerOneMoveThreeType = 'INVALID'
+    playerOneMoveThreeValue = 'INVALID'
+    playerTwoMoveOneType = 'INVALID'
+    playerTwoMoveOneValue = 'INVALID'
+    playerTwoMoveTwoType = 'INVALID'
+    playerTwoMoveTwoValue = 'INVALID'
+    playerTwoMoveThreeType = 'INVALID'
+    playerTwoMoveThreeValue = 'INVALID'
+    return
+  }
+
   if (player === 'Player One') {
-    playerOneMoveOneType = moveOneType
-    playerOneMoveOneValue = moveOneValue
-    playerOneMoveTwoType = moveTwoType
-    playerOneMoveTwoValue = moveTwoValue
-    playerOneMoveThreeType = moveThreeType
-    playerOneMoveThreeValue = moveThreeValue
-  } else if (player === 'Player Two') {
-    playerTwoMoveOneType = moveOneType
-    playerTwoMoveOneValue = moveOneValue
-    playerTwoMoveTwoType = moveTwoType
-    playerTwoMoveTwoValue = moveTwoValue
-    playerTwoMoveThreeType = moveThreeType
-    playerTwoMoveThreeValue = moveThreeValue
+    if (
+      (moveOneType === 'rock' || moveOneType === 'paper' || moveOneType === 'scissors') &&
+      (moveOneValue > 0 && moveOneValue < 99)
+    ) {
+      playerOneMoveOneType = moveOneType
+      playerOneMoveOneValue = moveOneValue
+    } else {
+      playerOneMoveOneType = 'INVALID'
+      playerOneMoveOneValue = 'INVALID'
+      playerOneMoveTwoType = 'INVALID'
+      playerOneMoveTwoValue = 'INVALID'
+      playerOneMoveThreeType = 'INVALID'
+      playerOneMoveThreeValue = 'INVALID'
+      return
+    }
+
+    if ((moveTwoType === 'rock' || moveTwoType === 'paper' || moveTwoType === 'scissors') &&
+      (moveTwoValue > 0 && moveTwoValue < (99-moveOneValue))
+    ) {
+      playerOneMoveTwoType = moveTwoType
+      playerOneMoveTwoValue = moveTwoValue
+    } else {
+      playerOneMoveOneType = 'INVALID'
+      playerOneMoveOneValue = 'INVALID'
+      playerOneMoveTwoType = 'INVALID'
+      playerOneMoveTwoValue = 'INVALID'
+      playerOneMoveThreeType = 'INVALID'
+      playerOneMoveThreeValue = 'INVALID'
+      return
+    }
+
+    if ((moveThreeType === 'rock' || moveThreeType === 'paper' || moveThreeType === 'scissors') &&
+    (moveThreeValue > 0 && moveThreeValue <= (99 - (moveOneValue + moveTwoValue)))
+    ) {
+      playerOneMoveThreeType = moveThreeType
+      playerOneMoveThreeValue = moveThreeValue
+    } else {
+      playerOneMoveOneType = 'INVALID'
+      playerOneMoveOneValue = 'INVALID'
+      playerOneMoveTwoType = 'INVALID'
+      playerOneMoveTwoValue = 'INVALID'
+      playerOneMoveThreeType = 'INVALID'
+      playerOneMoveThreeValue = 'INVALID'
+      return
+    }
+  }
+
+  if (player === 'Player Two') {
+    if ((moveOneType === 'rock' || moveOneType === 'paper' || moveOneType === 'scissors') &&
+      (moveOneValue > 0 && moveOneValue < 99)
+    ) {
+      playerTwoMoveOneType = moveOneType
+      playerTwoMoveOneValue = moveOneValue
+    } else {
+      playerTwoMoveOneType = 'INVALID'
+      playerTwoMoveOneValue = 'INVALID'
+      playerTwoMoveTwoType = 'INVALID'
+      playerTwoMoveTwoValue = 'INVALID'
+      playerTwoMoveThreeType = 'INVALID'
+      playerTwoMoveThreeValue = 'INVALID'
+      return
+    }
+
+    if ((moveTwoType === 'rock' || moveTwoType === 'paper' || moveTwoType === 'scissors') &&
+      (moveTwoValue > 0 && moveTwoValue < 99)
+    ) {
+      playerTwoMoveTwoType = moveTwoType
+      playerTwoMoveTwoValue = moveTwoValue
+    } else {
+      playerTwoMoveOneType = 'INVALID'
+      playerTwoMoveOneValue = 'INVALID'
+      playerTwoMoveTwoType = 'INVALID'
+      playerTwoMoveTwoValue = 'INVALID'
+      playerTwoMoveThreeType = 'INVALID'
+      playerTwoMoveThreeValue = 'INVALID'
+      return
+    }
+
+    if ((moveThreeType === 'rock' || moveThreeType === 'paper' || moveThreeType === 'scissors') &&
+      (moveThreeValue > 0 && moveThreeValue < 99)
+    ) {
+      playerTwoMoveThreeType = moveThreeType
+      playerTwoMoveThreeValue = moveThreeValue
+    } else {
+      playerTwoMoveOneType = 'INVALID'
+      playerTwoMoveOneValue = 'INVALID'
+      playerTwoMoveTwoType = 'INVALID'
+      playerTwoMoveTwoValue = 'INVALID'
+      playerTwoMoveThreeType = 'INVALID'
+      playerTwoMoveThreeValue = 'INVALID'
+      return
+    }
   }
 }
 
-// Function getRoundWinner: takes a round number (round 1, round 2, or round 3) and compares both player’s move types and values for that round, and returns the appropriate winner ('Player One', 'Player Two', or 'Tie')
 
-// console.log('playerOneMoveOneType ' + playerOneMoveOneType)
-// console.log('playerTwoMoveOneType ' + playerTwoMoveOneType)
-// console.log('playerOneMoveOneValue ' + playerOneMoveOneValue)
-// console.log('playerTwoMoveOneValue ' + playerTwoMoveOneValue)
 
+// Function getRoundWinner:
 
 const getRoundWinner = (round) => {
 
