@@ -50,7 +50,7 @@ const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoV
     }
 
     if ((moveTwoType === 'rock' || moveTwoType === 'paper' || moveTwoType === 'scissors') &&
-      (moveTwoValue > 0 && moveTwoValue < (99-moveOneValue))
+      (moveTwoValue > 0 && moveTwoValue < (99 - moveOneValue))
     ) {
       playerOneMoveTwoType = moveTwoType
       playerOneMoveTwoValue = moveTwoValue
@@ -65,7 +65,7 @@ const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoV
     }
 
     if ((moveThreeType === 'rock' || moveThreeType === 'paper' || moveThreeType === 'scissors') &&
-    (moveThreeValue > 0 && moveThreeValue <= (99 - (moveOneValue + moveTwoValue)))
+      (moveThreeValue > 0 && moveThreeValue <= (99 - (moveOneValue + moveTwoValue)))
     ) {
       playerOneMoveThreeType = moveThreeType
       playerOneMoveThreeValue = moveThreeValue
@@ -150,11 +150,11 @@ const getRoundWinner = (round) => {
       return 'Player Two'
     }
 
-    if (playerOneMoveOneType === 'rock') {
-      if (playerTwoMoveOneType === 'paper') {
-        return 'Player Two'
+    if (playerOneMoveOneType === 'paper') {
+      if (playerTwoMoveOneType === 'rock') {
+        return 'Player One'
       }
-      return 'Player One'
+      return 'Player Two'
     }
 
     if (playerOneMoveOneType === 'scissors') {
@@ -164,6 +164,11 @@ const getRoundWinner = (round) => {
       return 'Player Two'
     }
   }
+
+  // playerOneMoveTwoType = 'paper';
+  // playerOneMoveTwoValue = 1;
+  // playerTwoMoveTwoType = 'rock';
+  // playerTwoMoveTwoValue = 97;
 
   if (round === 2) {
     if (playerOneMoveTwoType === playerTwoMoveTwoType && playerOneMoveTwoValue > playerTwoMoveTwoValue) {
@@ -181,11 +186,11 @@ const getRoundWinner = (round) => {
       return 'Player Two'
     }
 
-    if (playerOneMoveTwoType === 'rock') {
-      if (playerTwoMoveTwoType === 'paper') {
-        return 'Player Two'
+    if (playerOneMoveTwoType === 'paper') {
+      if (playerTwoMoveTwoType === 'rock') {
+        return 'Player One'
       }
-      return 'Player One'
+      return 'Player Two'
     }
 
     if (playerOneMoveTwoType === 'scissors') {
@@ -212,11 +217,11 @@ const getRoundWinner = (round) => {
       return 'Player Two'
     }
 
-    if (playerOneMoveThreeType === 'rock') {
-      if (playerTwoMoveThreeType === 'paper') {
-        return 'Player Two'
+    if (playerOneMoveThreeType === 'paper') {
+      if (playerTwoMoveThreeType === 'rock') {
+        return 'Player One'
       }
-      return 'Player One'
+      return 'Player Two'
     }
 
     if (playerOneMoveThreeType === 'scissors') {
@@ -228,3 +233,37 @@ const getRoundWinner = (round) => {
   }
 }
 
+
+const getGameWinner = () => {
+
+  let playerOneWins = 0
+  let playerTwoWins = 0
+  
+  if (getRoundWinner(1) === 'Player One') {
+    playerOneWins++
+  } else if (getRoundWinner(1) === 'Player Two') {
+    playerTwoWins++
+  }
+
+  if (getRoundWinner(2) === 'Player One') {
+    playerOneWins++
+  } else if (getRoundWinner(2) === 'Player Two') {
+    playerTwoWins++
+  }
+
+  if (getRoundWinner(3) === 'Player One') {
+    playerOneWins++
+  } else if (getRoundWinner(3) === 'Player Two') {
+    playerTwoWins++
+  }
+
+  if (playerOneWins > playerTwoWins) {
+    return 'Player One'
+  } else if (playerOneWins < playerTwoWins) {
+    return 'Player Two'
+  }
+
+  if (playerOneWins === playerTwoWins) {
+    return 'Tie'
+  }
+}
