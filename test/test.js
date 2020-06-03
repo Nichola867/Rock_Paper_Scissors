@@ -326,7 +326,7 @@ describe('getRoundWinner() - Main Functionality', function () {
   });
 });
 
-//NEED TO DO THESE TESTS...
+  //WORKING :)
 describe('getRoundWinner() - Edge Cases', function () {
   it('should return null for an invalid round number', function () {
     should.equal(getRoundWinner(4), null);
@@ -377,11 +377,13 @@ describe('getRoundWinner() - Edge Cases', function () {
   });
 });
 
+ //WORKING :)
 describe('getGameWinner() - Main Functionality', function () {
   it('a function called getGameWinner should exist', function () {
     should.equal(typeof getGameWinner, 'function');
   });
 
+   //WORKING :)
   it('should declare when player one wins', function () {
     playerOneMoveOneType = 'rock';
     playerOneMoveOneValue = 53;
@@ -399,6 +401,7 @@ describe('getGameWinner() - Main Functionality', function () {
     should.equal(getGameWinner(), 'Player One');
   });
 
+   //WORKING :)
   it('should declare when player two wins', function () {
     playerOneMoveOneType = 'rock';
     playerOneMoveOneValue = 1;
@@ -416,6 +419,7 @@ describe('getGameWinner() - Main Functionality', function () {
     should.equal(getGameWinner(), 'Player Two');
   });
 
+   //WORKING :)
   it('should declare when the game is a tie', function () {
     playerOneMoveOneType = 'rock';
     playerOneMoveOneValue = 1;
@@ -434,6 +438,7 @@ describe('getGameWinner() - Main Functionality', function () {
   });
 });
 
+ //WORKING :)
 describe('getGameWinner() - Main Functionality', function () {
   it('should return null if not all values are set', function () {
     playerOneMoveOneType = undefined;
