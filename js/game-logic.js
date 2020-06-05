@@ -133,7 +133,6 @@ const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoV
 
 const getRoundWinner = (round) => {
 
-
   if (round === 1 || round === 2 || round === 3) {
     if (round === 1) {
       if (playerOneMoveOneType !== undefined && playerTwoMoveOneType !== undefined && playerOneMoveOneValue !== undefined && playerTwoMoveOneValue !== undefined) {
@@ -248,11 +247,19 @@ const getRoundWinner = (round) => {
 
 const getGameWinner = () => {
 
+  // console.log('playerOneMoveOneType ' + playerOneMoveOneType)
+  // console.log('playerOneMoveOneValue ' + playerOneMoveOneValue)
+  // console.log('playerTwoMoveOneType ' + playerTwoMoveOneType)
+  // console.log('playerTwoMoveOneValue ' + playerTwoMoveOneValue)
+  // console.log('playerTwoMoveTwoValue ' + playerTwoMoveTwoValue)
+  // console.log('playerTwoMoveThreeValue ' + playerTwoMoveThreeValue)
+
+
   let playerOneWins = 0
   let playerTwoWins = 0
 
 
-  if ((getRoundWinner(1) !== undefined) && (getRoundWinner(2) !== undefined) && (getRoundWinner(3) !== undefined)) {
+  if ((getRoundWinner(1) !== null) && (getRoundWinner(2) !== null) && (getRoundWinner(3) !== null)) {
     if (getRoundWinner(1) === 'Player One') {
       playerOneWins++
     } else if (getRoundWinner(1) === 'Player Two') {
@@ -283,3 +290,19 @@ const getGameWinner = () => {
   } else
     return null
 }
+
+const setComputerMoves = () => {
+
+  let randomNum = (Math.floor(Math.random() * 3))
+
+
+  switch (randomNum) {
+    case 0: return 'rock'
+      break
+    case 1: return 'paper'
+      break
+    case 2: return 'scissors'
+      break
+  }
+}
+  console.log('SETCOMPUTERMOVES '+setComputerMoves())

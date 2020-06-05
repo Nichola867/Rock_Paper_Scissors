@@ -333,42 +333,52 @@ describe('getRoundWinner() - Edge Cases', function () {
   });
 
    //WORKING :)
-  it('should return null if any move types or values are missing', function () {
+  it('should return null if PlayerOneMoveType is undefined', function () {
     playerOneMoveOneType = undefined;
     playerOneMoveOneValue = 1;
     playerTwoMoveOneType = 'rock';
     playerTwoMoveOneValue = 99;
 
     should.equal(getRoundWinner(1), null);
+  })
 
-    playerOneMoveOneType = 'rock';
+    it('should return null if playerOneMoveOneValue is undefined', function () {
+    playerOneMoveOneType = 'paper';
     playerOneMoveOneValue = undefined;
-    playerTwoMoveOneType = 'rock';
+    playerTwoMoveOneType = 'paper';
     playerTwoMoveOneValue = 99;
 
     should.equal(getRoundWinner(1), null);
-
-    playerOneMoveOneType = 'rock';
+    })
+  
+    it('should return null if playerTwoMoveOneType is undefined', function () {
+    playerOneMoveOneType = 'scissors';
     playerOneMoveOneValue = 1;
     playerTwoMoveOneType = undefined;
     playerTwoMoveOneValue = 99;
 
     should.equal(getRoundWinner(1), null);
-
+    })
+  
+    it('should return null if playerTwoMoveOneValue is undefined', function () {
     playerOneMoveOneType = 'rock';
     playerOneMoveOneValue = 1;
     playerTwoMoveOneType = 'rock';
     playerTwoMoveOneValue = undefined;
 
     should.equal(getRoundWinner(1), null);
-
+    })
+  
+    it('should return null if playerTwoMoveTwoValue is undefined', function () {
     playerOneMoveTwoType = 'rock';
     playerOneMoveTwoValue = 1;
     playerTwoMoveTwoType = 'rock';
     playerTwoMoveTwoValue = undefined;
 
     should.equal(getRoundWinner(2), null);
-
+    })
+  
+    it('should return null if playerTwoMoveThreeValue is undefined', function () {
     playerOneMoveThreeType = 'rock';
     playerOneMoveThreeValue = 1;
     playerTwoMoveThreeType = 'rock';
@@ -460,15 +470,17 @@ describe('getGameWinner() - Main Functionality', function () {
 });
 
 
-describe('BONUS: setComputerMoves()', function () {
+describe.only('BONUS: setComputerMoves()', function () {
   const validMoves = ['rock', 'paper', 'scissors'];
 
   afterEach(clearMoves);
 
+ //WORKING :)
   it('a function called setComputerMoves should exist', function () {
     should.equal(typeof setComputerMoves, 'function');
   });
 
+   //TBC
   it('should set player two\'s move types to valid move types', function () {
     setComputerMoves();
 
@@ -477,6 +489,7 @@ describe('BONUS: setComputerMoves()', function () {
     should.equal(validMoves.includes(playerTwoMoveThreeType), true);
   });
 
+    //TBC
   it('should set player two\'s move values to valid move values', function () {
     setComputerMoves();
 
@@ -488,6 +501,7 @@ describe('BONUS: setComputerMoves()', function () {
     (playerTwoMoveThreeValue).should.be.below(100);
   });
 
+    //TBC
   it('should set player two\'s move values to three values that sum to ninety-nine', function () {
     setComputerMoves();
 
