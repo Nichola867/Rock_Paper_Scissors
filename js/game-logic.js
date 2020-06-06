@@ -80,12 +80,14 @@ const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoV
     }
   }
 
+
   if (player === 'Player Two') {
     if ((moveOneType === 'rock' || moveOneType === 'paper' || moveOneType === 'scissors') &&
-      (moveOneValue > 0 && moveOneValue < 99)
-    ) {
+      (moveOneValue > 0 && moveOneValue < 99)) {
+
       playerTwoMoveOneType = moveOneType
       playerTwoMoveOneValue = moveOneValue
+
     } else {
       playerTwoMoveOneType = 'INVALID'
       playerTwoMoveOneValue = 'INVALID'
@@ -97,10 +99,11 @@ const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoV
     }
 
     if ((moveTwoType === 'rock' || moveTwoType === 'paper' || moveTwoType === 'scissors') &&
-      (moveTwoValue > 0 && moveTwoValue < 99)
-    ) {
+      (moveTwoValue > 0 && moveTwoValue < 99)) {
+
       playerTwoMoveTwoType = moveTwoType
       playerTwoMoveTwoValue = moveTwoValue
+
     } else {
       playerTwoMoveOneType = 'INVALID'
       playerTwoMoveOneValue = 'INVALID'
@@ -112,10 +115,11 @@ const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoV
     }
 
     if ((moveThreeType === 'rock' || moveThreeType === 'paper' || moveThreeType === 'scissors') &&
-      (moveThreeValue > 0 && moveThreeValue < 99)
-    ) {
+      (moveThreeValue > 0 && moveThreeValue < 99)) {
+
       playerTwoMoveThreeType = moveThreeType
       playerTwoMoveThreeValue = moveThreeValue
+
     } else {
       playerTwoMoveOneType = 'INVALID'
       playerTwoMoveOneValue = 'INVALID'
@@ -247,14 +251,6 @@ const getRoundWinner = (round) => {
 
 const getGameWinner = () => {
 
-  // console.log('playerOneMoveOneType ' + playerOneMoveOneType)
-  // console.log('playerOneMoveOneValue ' + playerOneMoveOneValue)
-  // console.log('playerTwoMoveOneType ' + playerTwoMoveOneType)
-  // console.log('playerTwoMoveOneValue ' + playerTwoMoveOneValue)
-  // console.log('playerTwoMoveTwoValue ' + playerTwoMoveTwoValue)
-  // console.log('playerTwoMoveThreeValue ' + playerTwoMoveThreeValue)
-
-
   let playerOneWins = 0
   let playerTwoWins = 0
 
@@ -293,9 +289,10 @@ const getGameWinner = () => {
 
 const setComputerMoves = () => {
 
+  //chooses random number between 0 & 2
   let randomNum = (Math.floor(Math.random() * 3))
 
-
+  //assigns a move to 0, 1 & 2
   switch (randomNum) {
     case 0: return 'rock'
       break
@@ -305,4 +302,25 @@ const setComputerMoves = () => {
       break
   }
 }
-  console.log('SETCOMPUTERMOVES '+setComputerMoves())
+
+//PLAYERTWOMOVEONETYPE IS SETTING TO A RANDOM OPTION - WORKING!
+playerTwoMoveOneType = setComputerMoves()
+playerTwoMoveTwoType = setComputerMoves()
+playerTwoMoveThreeType = setComputerMoves()
+
+console.log('playerTwoMoveOneType = ' + playerTwoMoveOneType)
+console.log('playerTwoMoveTwoType = ' + playerTwoMoveTwoType)
+console.log('playerTwoMoveThreeType = ' + playerTwoMoveThreeType)
+
+
+
+
+
+//console.log('playerTwoMoveOneType ' + playerTwoMoveOneType)
+  // console.log('playerOneMoveOneType ' + playerOneMoveOneType)
+  // console.log('playerOneMoveOneValue ' + playerOneMoveOneValue)
+  // console.log('playerTwoMoveOneType ' + playerTwoMoveOneType)
+  // console.log('playerTwoMoveOneValue ' + playerTwoMoveOneValue)
+  // console.log('playerTwoMoveTwoValue ' + playerTwoMoveTwoValue)
+  // console.log('playerTwoMoveThreeValue ' + playerTwoMoveThreeValue)
+
