@@ -480,7 +480,7 @@ describe.only('BONUS: setComputerMoves()', function () {
     should.equal(typeof setComputerMoves, 'function');
   });
 
-  //TBC
+  //FUNCTION WORKS BUT TESTS NOT PASSING. MOVE TYPES BEING OVERWRITTEN WITH UNDEFINED.
   it('should set player two\'s move ONE type to valid move types', function () {
     setComputerMoves();
     should.equal(validMoves.includes(playerTwoMoveOneType), true);
@@ -497,7 +497,6 @@ describe.only('BONUS: setComputerMoves()', function () {
     should.equal(validMoves.includes(playerTwoMoveThreeType), true);
   });
 
-  console.log('validMoves = ' + validMoves)
 
   //TBC
   it('should set player two\'s move values to valid move values', function () {

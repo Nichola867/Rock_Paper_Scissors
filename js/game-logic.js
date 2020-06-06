@@ -141,11 +141,11 @@ const getRoundWinner = (round) => {
     if (round === 1) {
       if (playerOneMoveOneType !== undefined && playerTwoMoveOneType !== undefined && playerOneMoveOneValue !== undefined && playerTwoMoveOneValue !== undefined) {
 
-        if (playerOneMoveOneType === playerTwoMoveOneType && playerOneMoveOneValue > playerTwoMoveOneValue) {
+        if ((playerOneMoveOneType === playerTwoMoveOneType) && (playerOneMoveOneValue > playerTwoMoveOneValue)) {
           return 'Player One'
-        } else if (playerOneMoveOneType === playerTwoMoveOneType && playerOneMoveOneValue < playerTwoMoveOneValue) {
+        } else if ((playerOneMoveOneType === playerTwoMoveOneType) && (playerOneMoveOneValue < playerTwoMoveOneValue)) {
           return 'Player Two'
-        } else if (playerOneMoveOneType === playerTwoMoveOneType && playerOneMoveOneValue === playerTwoMoveOneValue) {
+        } else if ((playerOneMoveOneType === playerTwoMoveOneType) && (playerOneMoveOneValue === playerTwoMoveOneValue)) {
           return 'Tie'
         }
 
@@ -177,11 +177,11 @@ const getRoundWinner = (round) => {
     if (round === 2) {
       if (playerOneMoveTwoType !== undefined && playerTwoMoveTwoType !== undefined && playerOneMoveTwoValue !== undefined && playerTwoMoveTwoValue !== undefined) {
 
-        if (playerOneMoveTwoType === playerTwoMoveTwoType && playerOneMoveTwoValue > playerTwoMoveTwoValue) {
+        if ((playerOneMoveTwoType === playerTwoMoveTwoType) && (playerOneMoveTwoValue > playerTwoMoveTwoValue)) {
           return 'Player One'
-        } else if (playerOneMoveTwoType === playerTwoMoveTwoType && playerOneMoveTwoValue < playerTwoMoveTwoValue) {
+        } else if ((playerOneMoveTwoType === playerTwoMoveTwoType) && (playerOneMoveTwoValue < playerTwoMoveTwoValue)) {
           return 'Player Two'
-        } else if (playerOneMoveTwoType === playerTwoMoveTwoType && playerOneMoveTwoType === playerTwoMoveTwoType) {
+        } else if ((playerOneMoveTwoType === playerTwoMoveTwoType) && (playerOneMoveTwoType === playerTwoMoveTwoType)) {
           return 'Tie'
         }
 
@@ -213,11 +213,11 @@ const getRoundWinner = (round) => {
     if (round === 3) {
       if (playerOneMoveThreeType !== undefined && playerTwoMoveThreeType !== undefined && playerOneMoveThreeValue !== undefined && playerTwoMoveThreeValue !== undefined) {
 
-        if (playerOneMoveThreeType === playerTwoMoveThreeType && playerOneMoveThreeType > playerTwoMoveThreeType) {
+        if ((playerOneMoveThreeType === playerTwoMoveThreeType) && (playerOneMoveThreeValue > playerTwoMoveThreeValue)) {
           return 'Player One'
-        } else if (playerOneMoveThreeType === playerTwoMoveThreeType && playerOneMoveThreeType < playerTwoMoveThreeType) {
+        } else if ((playerOneMoveThreeType === playerTwoMoveThreeType) && (playerOneMoveThreeValue < playerTwoMoveThreeValue)) {
           return 'Player Two'
-        } else if (playerOneMoveThreeType === playerTwoMoveThreeType && playerOneMoveThreeType === playerTwoMoveThreeType) {
+        } else if ((playerOneMoveThreeType === playerTwoMoveThreeType) && (playerOneMoveThreeValue === playerTwoMoveThreeValue)) {
           return 'Tie'
         }
 
@@ -289,10 +289,8 @@ const getGameWinner = () => {
 
 const setComputerMoves = () => {
 
-  //chooses random number between 0 & 2
   let randomNum = (Math.floor(Math.random() * 3))
 
-  //assigns a move to 0, 1 & 2
   switch (randomNum) {
     case 0: return 'rock'
       break
@@ -303,15 +301,12 @@ const setComputerMoves = () => {
   }
 }
 
-//PLAYERTWOMOVEONETYPE IS SETTING TO A RANDOM OPTION - WORKING!
 playerTwoMoveOneType = setComputerMoves()
 playerTwoMoveTwoType = setComputerMoves()
 playerTwoMoveThreeType = setComputerMoves()
-
-console.log('playerTwoMoveOneType = ' + playerTwoMoveOneType)
-console.log('playerTwoMoveTwoType = ' + playerTwoMoveTwoType)
-console.log('playerTwoMoveThreeType = ' + playerTwoMoveThreeType)
-
+playerTwoMoveOneValue = (Math.floor(Math.random() * 99 + 1))
+playerTwoMoveTwoValue = (Math.floor(Math.random() * (99 - playerTwoMoveOneValue) + 1))
+playerTwoMoveThreeValue = (99 - (playerTwoMoveOneValue + playerTwoMoveTwoValue))
 
 
 
