@@ -470,7 +470,7 @@ describe('getGameWinner() - Main Functionality', function () {
 });
 
 
-describe.only('BONUS: setComputerMoves()', function () {
+describe('BONUS: setComputerMoves()', function () {
   const validMoves = ['rock', 'paper', 'scissors'];
 
   beforeEach(clearMoves);

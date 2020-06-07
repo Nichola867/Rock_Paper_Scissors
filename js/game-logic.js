@@ -1,17 +1,17 @@
 // 12 Global Variables:
 
-let playerOneMoveOneType
-let playerOneMoveOneValue
-let playerOneMoveTwoType
-let playerOneMoveTwoValue
-let playerOneMoveThreeType
-let playerOneMoveThreeValue
-let playerTwoMoveOneType
-let playerTwoMoveOneValue
-let playerTwoMoveTwoType
-let playerTwoMoveTwoValue
-let playerTwoMoveThreeType
-let playerTwoMoveThreeValue
+let playerOneMoveOneType,
+  playerOneMoveOneValue,
+  playerOneMoveTwoType,
+  playerOneMoveTwoValue,
+  playerOneMoveThreeType,
+  playerOneMoveThreeValue,
+  playerTwoMoveOneType,
+  playerTwoMoveOneValue,
+  playerTwoMoveTwoType,
+  playerTwoMoveTwoValue,
+  playerTwoMoveThreeType,
+  playerTwoMoveThreeValue
 
 
 const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoValue, moveThreeType, moveThreeValue) => {
@@ -311,11 +311,5 @@ playerTwoMoveThreeValue = (99 - (playerTwoMoveOneValue + playerTwoMoveTwoValue))
 
 
 
-//console.log('playerTwoMoveOneType ' + playerTwoMoveOneType)
-  // console.log('playerOneMoveOneType ' + playerOneMoveOneType)
-  // console.log('playerOneMoveOneValue ' + playerOneMoveOneValue)
-  // console.log('playerTwoMoveOneType ' + playerTwoMoveOneType)
-  // console.log('playerTwoMoveOneValue ' + playerTwoMoveOneValue)
-  // console.log('playerTwoMoveTwoValue ' + playerTwoMoveTwoValue)
-  // console.log('playerTwoMoveThreeValue ' + playerTwoMoveThreeValue)
+
 
